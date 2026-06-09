@@ -1,5 +1,5 @@
 # Centralized Enterprise Network
-
+![Network Topology](Images/Topology.jpg)
 ## 📌 Project Overview
 This project demonstrates the design, implementation, and centralized management of a secure, future-proof enterprise network edge using the **Fortinet Ecosystem**. Managed entirely via **FortiManager**, the architecture transitions a traditional static-routed topology into an abstracted, scalable **SD-WAN** fabric while enforcing strict application control policies.
 

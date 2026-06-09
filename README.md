@@ -17,12 +17,12 @@ This environment was deployed  within a virtualized sandbox hypervisor, mimickin
 | :--- | :--- | :--- | :--- |
 | **Fortinet_FMG** | Port 1 | `192.168.192.131/24` | [cite_start]Centralized Policy & Object Manager (NSE 5 Platform) [cite: 335, 340] |
 | **HQ_FGT** | Port 1 (Managment) | `192.168.192.137/24` | [cite_start]Primary Hub Firewall (External Transport Gate) [cite: 335] |
-| **HQ_FGT** | Port 2 (wan) | `dynamic` | Remote Spoke Site-02 Firewall Edge |
+| **HQ_FGT** | Port 2 (wan) | `dynamic 10.0.137.117/24` | Remote Spoke Site-02 Firewall Edge |
 | **HQ_FGT** | Port 3.10(HQ-Data) | `10.10.10.254/24` | [cite_start]Default Gateway for VLAN 10 Data Networks [cite: 152] |
 | **HQ_FGT** | Port 3.20(GQ-Servers) | `10.20.20.254/24` | [cite_start]Default Gateway for VLAN 20 Management Networks [cite: 152, 188] |
 | **HQ_Core_SW** | VLAN 20 SVI | `10.20.20.1/24` | Core Infrastructure Switching Management IP |
 | **Branch_FGT** | Port 1 (Management) | `192.168.136/24` | Remote Spoke Site-01 Firewall Edge |
-| **Branch_FGT** | Port 2 (wan) | `dynamic` | Remote Spoke Site-02 Firewall Edge |
+| **Branch_FGT** | Port 2 (wan) | `dynamic 10.0.137.15` | Remote Spoke Site-02 Firewall Edge |
 | **Branch_LAN** | Port 3.30 (BR-Data) | `10.10.20.0/24` range | [cite_start]Internal Spoke Subnets Managed via Dynamic Mapping [cite: 44] |
 
 ## 🛠️ Tech Stack & Architecture Components

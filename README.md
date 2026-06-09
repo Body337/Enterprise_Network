@@ -9,7 +9,7 @@ This environment was deployed  within a virtualized sandbox hypervisor, mimickin
 ### VLAN Allocations
 * **VLAN 10 (Data Plane)**: Assigned for internal corporate client and desktop compute resources.
 * **VLAN 20 (Servers Plane)**: Dedicated out-of-band management tier hosting critical core assets including the FortiManager appliance.
-* [cite_start]**VLAN 99 (Native VLAN)**: Used on standard trunk boundaries across internal network switches to maintain proper frame tagging practices[cite: 132].
+* **VLAN 30 (Branch_Data Plane)**: Dedicated out-of-band management tier hosting critical core assets including the FortiManager appliance.
 
 ### Device IP Address Assignments
 

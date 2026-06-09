@@ -6,7 +6,23 @@ This project demonstrates the design, implementation, and centralized management
 This environment was deployed  within a virtualized sandbox hypervisor, mimicking real-world data center and branch deployment workflows.
 
 ---
+### VLAN Allocations
+* **VLAN 10 (Data Plane)**: Assigned for internal corporate client and desktop compute resources.
+* **VLAN 20 (Management Plane)**: Dedicated out-of-band management tier hosting critical core assets including the FortiManager appliance.
+* [cite_start]**VLAN 99 (Native VLAN)**: Used on standard trunk boundaries across internal network switches to maintain proper frame tagging practices[cite: 132].
 
+### Device IP Address Assignments
+
+| Node Name | Physical/Logical Interface | IP Address Assignment | Purpose / Description |
+| :--- | :--- | :--- | :--- |
+| **Fortinet_FMG** | Port 1 | `192.168.192.131/24` | [cite_start]Centralized Policy & Object Manager (NSE 5 Platform) [cite: 335, 340] |
+| **HQ_FGT** | Port 1 (WAN) | `192.168.192.137/24` | [cite_start]Primary Hub Firewall (External Transport Gate) [cite: 335] |
+| **HQ_FGT** | Port 3.10 | `10.10.10.254/24` | [cite_start]Default Gateway for VLAN 10 Data Networks [cite: 152] |
+| **HQ_FGT** | Port 3.20 | `10.20.20.254/24` | [cite_start]Default Gateway for VLAN 20 Management Networks [cite: 152, 188] |
+| **HQ_FGT** | Port 3.99 | `10.99.99.254/24` | [cite_start]Native Infrastructure Trunk Sub-interface [cite: 152] |
+| **HQ_Core_SW** | VLAN 20 SVI | `10.20.20.1/24` | Core Infrastructure Switching Management IP |
+| **Branch_FGT** | Port 1 (WAN) | Dynamic / Static Public | Remote Spoke Site-01 Firewall Edge |
+| **Branch_LAN** | Port 2 (LAN) | `10.10.20.0/24` range | [cite_start]Internal Spoke Subnets Managed via Dynamic Mapping [cite: 44] |
 ## 🛠️ Tech Stack & Architecture Components
 * **Central Management:** FortiManager (v6.2)
 * **Next-Generation Firewall (NGFW):** FortiGate Virtual Appliance (FortiOS v6.2)

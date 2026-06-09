@@ -21,9 +21,9 @@ This environment was deployed  within a virtualized sandbox hypervisor, mimickin
 | **HQ_FGT** | Port 3.10(HQ-Data) | `10.10.10.254/24` | [cite_start]Default Gateway for VLAN 10 Data Networks [cite: 152] |
 | **HQ_FGT** | Port 3.20(GQ-Servers) | `10.20.20.254/24` | [cite_start]Default Gateway for VLAN 20 Management Networks [cite: 152, 188] |
 | **HQ_Core_SW** | VLAN 20 SVI | `10.20.20.1/24` | Core Infrastructure Switching Management IP |
-| **Branch_FGT** | Port 1 (Management) | `192.168.136/24` | Remote Spoke Site-01 Firewall Edge |
+| **Branch_FGT** | Port 1 (Management) | `192.168.192.136/24` | Remote Spoke Site-01 Firewall Edge |
 | **Branch_FGT** | Port 2 (wan) | `dynamic 10.0.137.15` | Remote Spoke Site-02 Firewall Edge |
-| **Branch_LAN** | Port 3.30 (BR-Data) | `10.10.20.0/24` range | [cite_start]Internal Spoke Subnets Managed via Dynamic Mapping [cite: 44] |
+| **Branch_LAN** | Port 3.30 (BR-Data) | `10.30.30.254/24` range | [cite_start]Internal Spoke Subnets Managed via Dynamic Mapping [cite: 44] |
 
 ## 2. Infrastructure Boot Initialization Matrix (PNetLab Optimization)
 

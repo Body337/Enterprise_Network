@@ -1,0 +1,31 @@
+username : admin
+password : admin
+
+
+config system interface
+    edit port1
+        set mode dhcp
+        set allowaccess ping https ssh http
+    next
+end
+
+get system interface physical
+
+
+________________________diagnosing why the pc1 wont ping 8.8.8.8_______________________
+
+diagnose sniffer packet any "host 10.10.10.10" 4
+
+diagnose debug flow filter addr 10.10.10.10
+diagnose debug flow trace start 5
+diagnose debug enable
+
+
+#####management cloud port1 was set as the static route since it had less administrative distence and was set to dhcp#######
+
+config system interface
+    edit port1
+        set distance 20
+    next
+end
+_________________________________________________________________________________________

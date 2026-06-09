@@ -1,0 +1,44 @@
+enable
+configure terminal
+
+hostname HQ-Access-SW
+
+! 1. Create the matching Enterprise VLANs
+vlan 10
+ name HQ-Data
+vlan 20
+ name HQ-Servers
+vlan 99
+ name HQ-Mgmt
+exit
+
+! 2. Set Spanning Tree to Rapid Mode
+spanning-tree mode rapid-pvst
+
+! 3. Configure the Trunk port going back up to the Core Switch
+interface Ethernet 0/1
+ description LINK_TO_HQ_CORE_SW
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,99
+ switchport trunk native vlan 99
+ no shutdown
+exit
+
+! 4. Configure Access Port for HQ-PC1 (VLAN 10)
+interface Ethernet 0/2
+ description LINK_TO_HQ_PC1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit
+
+! 5. Configure Access Port for HQ-PC2 (VLAN 10)
+interface Ethernet 0/	3
+ description LINK_TO_HQ_PC2
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ no shutdown
+exit

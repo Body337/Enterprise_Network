@@ -1,0 +1,32 @@
+config system interface   ###########management cloud############
+    edit port1
+        set mode dhcp
+        set allowaccess ping https ssh http fgfm
+    next
+end
+
+config system route
+    edit 2
+        set device port2
+        set gateway 192.168.192.2
+    next
+end
+
+
+
+
+config system interface
+    edit port1
+        set mode static
+        set ip 10.20.20.251 255.255.255.0
+        set allowaccess ping https ssh http fgfm
+    next
+end
+
+config system route
+    edit 2
+        set device port1
+        set gateway 10.20.20.254
+    next
+end
+

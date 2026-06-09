@@ -39,16 +39,16 @@ This environment was deployed  within a virtualized sandbox hypervisor, mimickin
 
 An overlay mesh is engineered between **HQ_FGT (Hub)** and **Branch_FGT (Spoke)** to securely pass internal private traffic over untrusted simulated WAN transport boundaries.
 
-### Centralized Management (FortiManager)
+## 4. Centralized Management (FortiManager)
 * Separated configuration database management from live execution by maintaining separate **Device Settings** and **Policy Packages**.
 * Utilized the consolidated deployment wizard to maintain a single source of truth for the edge environment.
 
-### High-Performance WAN Edge (SD-WAN)
+## 5. High-Performance WAN Edge (SD-WAN)
 * Abstracted the physical internet interface (`port2`) into a virtual **`sdwan` interface zone** to ensure future-proof multi-homed ISP expansion without firewall policy disruption.
 * Maintained traffic shaping benchmarks with configured traffic metrics ($100\text{ Mbps}$ Symmetric bandwidth baselines).
 * Configured automated **Performance SLAs** tracking latency and packet loss against public infrastructure (`8.8.8.8`) to govern automated path monitoring.
 
-### Layer 7 Next-Generation Security
+## 6. Layer 7 Next-Generation Security
 * **Application Control:** Designed and implemented a strict application policy blocking bandwidth-wasting, high-risk, and social media platforms (e.g., explicit blocking of `facebook.com`).
 * **SSL Inspection Integration:** Applied customized flow-based inspection profiles to ensure deep packet inspection over encrypted HTTPS handshakes without breaking underlying application traffic.
 * **Security & Routing Synchronicity:** Re-engineered traditional default gateway routing rules to map directly to the `sdwan` interface while binding granular firewall policies to the SD-WAN zone structure.

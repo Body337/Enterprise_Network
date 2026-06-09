@@ -29,9 +29,9 @@ This environment was deployed  within a virtualized sandbox hypervisor, mimickin
 
 [cite_start]Due to virtualized resource constraints and device startup behavior in sandboxed environments, specific execution states must be met to avoid DHCP leases or FGFM tunnel dropouts. The nodes should be activated in this sequential order:
 
-1.  **Phase I: Cisco Infrastructure Layer (`HQ_Core_SW` & `HQ_Access_SW`)** *Objective*: Establish initial 802.1Q trunks and let Spanning Tree Protocol (Rapid-PVST) transition to a stable forwarding state[cite: 132].
-2.  **Phase II: Security Gateways & Orchestration (`HQ_FGT` & `Fortinet_FMG`)** *Objective*: Ensure the firewall’s local interfaces are initialized and the FortiManager FGFM daemon is actively listening for registration traffic on TCP port 541.
-3.  **Phase III: Client Endpoint Tier (`HQ_PC_1` / Windows VMs)** *Objective*: Prevent endpoints from timing out and assigning APIPA addresses (`169.254.x.x`) by ensuring DHCP server processes are awake on the upstream firewalls.
+1.  **Phase I: Cisco Infrastructure Layer (`HQ_Core_SW` & `HQ_Access_SW` & `BR_Core_SW`)** *Objective*: Establish initial 802.1Q trunks and let Spanning Tree Protocol (Rapid-PVST) transition to a stable forwarding state.
+2.  **Phase II: Security Gateways & Orchestration (`HQ_FGT` & `Fortinet_FMG` & `BR_FGT`)** *Objective*: Ensure the firewall’s local interfaces are initialized and the FortiManager FGFM daemon is actively listening for registration traffic on TCP port 541.
+3.  **Phase III: Client Endpoint Tier (`HQ_PC_1` / `Windows VM`)** *Objective*: Prevent endpoints from timing out and assigning APIPA addresses (`169.254.x.x`) by ensuring DHCP server processes are awake on the upstream firewalls.
 
 ---
 
